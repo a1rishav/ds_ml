@@ -45,9 +45,9 @@ print(array_x.T)
 
 #stacking
 # Horizontal stack --> number of rows must be same
-# Vertica stack --> number of colums must be same
+# Vertical stack --> number of colums must be same
 
-print("\n vertical tacking\n")
+print("\n vertical stacking\n")
 array_1 = np.arange(12).reshape(3, 4)
 array_2 = np.arange(8).reshape(2, 4)
 print(array_1)
@@ -130,3 +130,4 @@ A = np.array([[2, 0],
 c, v = np.linalg.eig(A)
 print("Eigenvalues : \n {}".format(c))
 print("Eigenvectors : \n {}".format(v))
+
