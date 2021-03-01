@@ -60,6 +60,12 @@ Impute rules :
         - median is close to mean
         - variation from 25th to 75th quartile is also less          
 
+numerical columns involved
+    - both mean and median offer up as a good imputed value
+
+categorical column
+    - mode turns out to be a decent enough imputation to carry out.
+
 Predictive techniques: Use statistical models such as k-NN, SVM etc. to predict and impute missing values
 In general, imputation makes assumptions about the missing values and replaces missing values
 by arbitrary numbers such as mean, median etc. It should be used only when you are reasonably confident
