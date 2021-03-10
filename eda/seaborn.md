@@ -55,7 +55,7 @@
 - heatmap
   - visualize coorelation
   - ```
-    sns.heatmap(data=df, cmap = "Greens", annot=True)
+    sns.heatmap(data=df.corr(), cmap = "Greens", annot=True)
     ```
   - https://seaborn.pydata.org/generated/seaborn.heatmap.html?highlight=heatmap#seaborn.heatmap
 
