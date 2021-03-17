@@ -1,6 +1,6 @@
 # EDA
 
-## Preparatory Course
+## Uses of visualization
 
 ### Numerical values
 - Histogram or seaborn's distplot
@@ -94,3 +94,36 @@
   - Filter rows: Filter by segment, filter by date period to get only the rows relevant to the analysis
   - Filter columns: Pick columns relevant to the analysis
   - Aggregate data: Group by required keys, aggregate the rest
+
+## Univariate Analysis
+
+### Extract metadata
+- Overview
+  - Description of data, what is the data about
+  - Source
+  - Format, can be files, can be database
+  - Count of rows
+  - Sampling method if available,eg : all customers who bought more items bw 2001 and 2020
+- Column Info
+  - Name
+  - type
+  - description
+  - missing values count
+  - unique items or unique items count
+  - column type : ordered categorical, unordered categorical, numerical
+- Analysing unordered categorical variable
+  - Column current_working_location has name of states
+    - find value_counts
+  - Barchart showing frequency count
+  - Add rank (sorting and assigning a number) and plotting rank vs frequency plot using
+    - If the range of values is too high, use log scale, a straight line in log scale is **powerlaw distribution**  
+- Analysing ordered categorical variable
+  - variables 
+    - low, medium, high
+    - electricity units consumption
+    - marks of a student
+  - plot a histogram
+    - spike in between are anamolies
+  - Analysing quantative variables
+    - median is a better measure of group's representativeness
+    - 
