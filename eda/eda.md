@@ -125,5 +125,15 @@
   - plot a histogram
     - spike in between are anamolies
   - Analysing quantative variables
-    - median is a better measure of group's representativeness
-    - 
+    - median is a better measure of group's representativeness as mean will be affected by outlier
+    - mode is used in categorical data to get the most frequent one
+    - 25th, 75th percentile, interquartile values are much better than standard deviation since standard deviation is affected by outliers
+    - to know the spread, use 75th - 25th percentile
+  - Segmented Univariate Analysis
+    -  any categorical data can serve as the basis of segmentation, but you’ll need to use your best business judgement to choose the right data to analyse
+    - Process
+      - Take raw data
+      - Group by dimensions
+      - Summarise using a relevant metric such as mean, median, etc.
+      - Compare the aggregated metric across groups/categories
+      - “Don’t blindly believe in the averages of the buckets — you need to observe the distribution of each bucket closely and ask yourself if the difference in means is significant enough to draw a conclusion. If the difference in means is small, you may not be able to draw inferences. In such cases, a technique called hypothesis testing is used to ascertain whether the difference in means is significant or due to randomness
