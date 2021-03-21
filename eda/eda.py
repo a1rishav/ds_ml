@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # <<------------------  Univariate analysis --------------->>
-
+'''
 # Tendulkar's odi runs dataset
 df = pd.read_csv("../data/tendulkar_odi.csv")
 
@@ -87,5 +87,51 @@ state_literacy_df['literacy_rate'] = df['li_person'] / df['total_person']
 state_literacy_df.groupby('Area Name').mean()['literacy_rate'].plot.barh()
 plt.show()
 
+'''
+# <<------------------ Bivariate analysis --------------->>
 
-# <<------------------  Univariate analysis --------------->>
+# Dataset : gold_silver_prices.csv
+
+# Q : What is the correlation in Gold and Silver prices (round off the answer to two decimal places)?
+
+'''
+df = pd.read_csv("../data/gold_silver_prices.csv")
+print(df.corr().iloc[0:1].values[0][1])
+
+# Q : What is the correlation in Gold and Silver prices for the years 2008(nearest two decimal places )?
+df["Month"] = pd.to_datetime(df["Month"], format='%b-%y')
+df["Year"] = df["Month"].apply(lambda x : x.year)
+df.loc[(df["Year"] == 2008)].corr()
+
+# Dataset : currencies.csv
+
+# Q : Indian rupee is the most correlated with
+
+df = pd.read_csv("../data/currencies.csv")
+numerics = ['int16', 'int32', 'int64', 'float16', 'float32', 'float64']
+newdf = df.select_dtypes(include=numerics)
+ind_corr = newdf.corr().loc[["Indian Rupee"],:]
+# sns.heatmap(data=ind_corr, cmap = "Greens", annot=True)
+# plt.show()
+print()
+
+# Q : Correlation of (Japanese Yen and US dollar), (Australian dollar and INR),
+# (Japanese Yen and UK Pound Sterling), (Chinese Yuan and Euro)
+print(newdf.corr().loc[["Japanese Yen"],:["U.S. Dollar"],])
+'''
+
+# Dataset : nas.csv
+
+# Q : You want to understand the distribution of two variables — mother’s education
+# and the number of siblings. Complete the following statement:
+# Most children whose mother is illiterate have how many siblings
+
+df = pd.read_csv("../data/nas.csv")
+df_ilt = df.loc[(df["Mother.edu"] == 'Illiterate')]
+print(df_ilt['Siblings'].value_counts())
+print()
+# Siblings
+# Mother.edu
+
+# Q : How father's education and children age affect science marks
+print(df.groupby(['Father.edu', 'Age']).agg({'Science..' : np.mean}).sort_values(by='Science..', ascending=False))

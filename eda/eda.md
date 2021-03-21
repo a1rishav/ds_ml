@@ -129,6 +129,7 @@
     - mode is used in categorical data to get the most frequent one
     - 25th, 75th percentile, interquartile values are much better than standard deviation since standard deviation is affected by outliers
     - to know the spread, use 75th - 25th percentile
+    - practical use case : on a sachine's cricket score dataset, group sachin's score in ranges 1-10, 11-20, ..., sachin scored max bw 1 to 10
   - Segmented Univariate Analysis
     -  any categorical data can serve as the basis of segmentation, but you’ll need to use your best business judgement to choose the right data to analyse
     - Process
@@ -137,3 +138,13 @@
       - Summarise using a relevant metric such as mean, median, etc.
       - Compare the aggregated metric across groups/categories
       - “Don’t blindly believe in the averages of the buckets — you need to observe the distribution of each bucket closely and ask yourself if the difference in means is significant enough to draw a conclusion. If the difference in means is small, you may not be able to draw inferences. In such cases, a technique called hypothesis testing is used to ascertain whether the difference in means is significant or due to randomness
+  - Bivariate Analysis on Continuous Variables
+      - correlation is a number between -1 and 1 which quantifies the extent to which two variables ‘correlate’ with each other.
+        - If one increases as the other increases, the correlation is positive
+        - If one decreases as the other increases, the correlation is negative
+        - If one stays constant as the other varies, the correlation is zero
+      - Correlation practical use cases
+        - Resturants can group items andprepare combos based on coorealtion of sales
+        - Resturant sales data, it was found that 1L bottle sales was negatively coorelated with sales of other items, so size was reduced to 500 ml
+      - bivariate analysis is basically grouping on 2 categorical columns and aggregating a numeric column
+  
