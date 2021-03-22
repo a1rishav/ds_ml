@@ -1,4 +1,5 @@
 import pandas as pd
+from datetime import datetime
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -118,7 +119,6 @@ print()
 # Q : Correlation of (Japanese Yen and US dollar), (Australian dollar and INR),
 # (Japanese Yen and UK Pound Sterling), (Chinese Yuan and Euro)
 print(newdf.corr().loc[["Japanese Yen"],:["U.S. Dollar"],])
-'''
 
 # Dataset : nas.csv
 
@@ -134,4 +134,41 @@ print()
 # Mother.edu
 
 # Q : How father's education and children age affect science marks
-print(df.groupby(['Father.edu', 'Age']).agg({'Science..' : np.mean}).sort_values(by='Science..', ascending=False))
+
+# Dataset : odi-batting.csv
+
+# Q : Which player scored the highest number of centuries?
+df = pd.read_csv("../data/odi-batting.csv")
+df["century"] = df["Runs"].apply(lambda run : 1 if run >= 100 else 0)
+df.groupby("Player").agg({'century' : np.sum}).sort_values(by='century', ascending=False)
+
+# Q : Fastest century innings
+df["strike_rate"] = df.apply(lambda row : row["Runs"]/row["Balls"] *100, axis=1)
+df.loc[(df.Runs >= 100)].sort_values(by='strike_rate', ascending=False)
+
+# Q : In which year were the maximum number of centuries scored by Indian players?
+df["year"] = df["MatchDate"].apply(lambda date : date[-4:])
+df.loc[(df.Country == 'India')].groupby("year").agg({'century' : np.sum}).sort_values(by='century', ascending=False)
+'''
+
+# Dataset : grades.csv
+
+# Q : Which player scored the highest number of centuries?
+df = pd.read_csv("../data/grades.csv")
+df["format"] = df["submission"].apply(lambda link : link.split("/")[-1].split(".")[-1])
+df["roll_no"] = df["submission"].apply(lambda link : link.split("/")[-1].split(".")[0])
+df["format"].value_counts()['zip'] / len(df)
+
+# Q : How many students submitted the assignment after the first deadline -> Jan 3, 2017 - 11:59:59 PM
+# (including the students who submitted after the second deadline)  ?
+df["submit_datetime"] = pd.to_datetime(df['submit_time'])
+first_deadline = datetime.strptime('2017-01-03 23:59:59', '%Y-%m-%d %H:%M:%S')
+len(df.loc[(df.submit_datetime > first_deadline)].sort_values(by='submit_datetime', ascending=True))
+
+# Q : On which date did the most students submit the assignment?
+df["date"] = df["submit_time"].apply(lambda x : x.split("-")[0])
+df.date.value_counts()
+
+# Q : In which hour of the day did most students submit the solution?
+df["hour"] = df["submit_datetime"].apply(lambda x : x.hour)
+

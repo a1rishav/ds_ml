@@ -95,10 +95,9 @@
   - Filter columns: Pick columns relevant to the analysis
   - Aggregate data: Group by required keys, aggregate the rest
 
-## Univariate Analysis
+## Univariate, Segmented Univariate, Bivariate Analysis
 
-### Extract metadata
-- Overview
+- Extract metadata
   - Description of data, what is the data about
   - Source
   - Format, can be files, can be database
@@ -147,4 +146,24 @@
         - Resturants can group items andprepare combos based on coorealtion of sales
         - Resturant sales data, it was found that 1L bottle sales was negatively coorelated with sales of other items, so size was reduced to 500 ml
       - bivariate analysis is basically grouping on 2 categorical columns and aggregating a numeric column
-  
+  - Derived Metrics
+    Steven’s typology classifies variables into four types — nominal, ordinal, interval and ratio
+    - Type-driven metrics
+      - Nominal - Categorical variables, where the categories differ only by their names; there is no order among categories, e.g. colour (red, blue, green)
+      - Ordinal - Categories follow a certain order, but the mathematical difference between categories is not meaningful, e.g. education level (primary school, high school, college)
+      - Interval - Categories follow a certain order, and the mathematical difference between categories is meaningful but division or multiplication is not, e.g. temperature in degrees celsius, dates (the difference between two dates is the number of days between them, but 25th May / 5th June is meaningless) 
+      - Ratio - Apart from the mathematical difference, the ratio (division/multiplication) is possible, e.g. sales in dollars ($100 is twice $50), marks of students (50 is half of 100),
+      
+      - Examples :
+        - review : sentiment, length of review
+        - date : month, day, year, day of week
+        - location : district, state, country, east, west, timezone, urban, rural 
+      
+      - Numerical : mean, median, percntile of a column can be a new column
+    - Business-driven metrics : requires domain knowledge
+      - Examples
+        - Student marks : pass / fail, CGPA cutoff
+        - Banking : number of checques in a month, card sold == target, 
+    - Data-driven metrics
+      - data-driven metrics can be created based on the variables present in the existing data set
+      - if you have two variables in your data set such as "weight" and "height" which shows a high correlation. So, instead of analysing "weight" and "height" variables separately, you can think of deriving a new metric "Body Mass Index (BMI)
