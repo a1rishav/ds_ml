@@ -5,7 +5,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # <<------------------  Univariate analysis --------------->>
-'''
 # Tendulkar's odi runs dataset
 df = pd.read_csv("../data/tendulkar_odi.csv")
 
@@ -130,8 +129,8 @@ df = pd.read_csv("../data/nas.csv")
 df_ilt = df.loc[(df["Mother.edu"] == 'Illiterate')]
 print(df_ilt['Siblings'].value_counts())
 print()
-# Siblings
-# Mother.edu
+
+# <<------------------ Derived metrics --------------->>
 
 # Q : How father's education and children age affect science marks
 
@@ -149,7 +148,7 @@ df.loc[(df.Runs >= 100)].sort_values(by='strike_rate', ascending=False)
 # Q : In which year were the maximum number of centuries scored by Indian players?
 df["year"] = df["MatchDate"].apply(lambda date : date[-4:])
 df.loc[(df.Country == 'India')].groupby("year").agg({'century' : np.sum}).sort_values(by='century', ascending=False)
-'''
+
 
 # Dataset : grades.csv
 
