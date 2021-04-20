@@ -1,5 +1,9 @@
 # EDA
 
+## Purpose
+- what independent variables are affecting target variable
+- among indepeendent variables which ones are co-orelated
+
 ## Uses of visualization
 
 ### Numerical values
@@ -95,6 +99,12 @@
   - Filter columns: Pick columns relevant to the analysis
   - Aggregate data: Group by required keys, aggregate the rest
 
+## Relationship
+  - identify categorical and numerical
+  - numerical and numerical --> categorical
+  - numerical and categorical --> barplot, boxplot
+  - categorical and categorical
+
 ## Univariate, Segmented Univariate, Bivariate Analysis
 
 - Extract metadata
@@ -167,3 +177,15 @@
     - Data-driven metrics
       - data-driven metrics can be created based on the variables present in the existing data set
       - if you have two variables in your data set such as "weight" and "height" which shows a high correlation. So, instead of analysing "weight" and "height" variables separately, you can think of deriving a new metric "Body Mass Index (BMI)
+  
+## Workflow
+  - Summary stats
+    - df.describe 
+    - df.describe include 0 for categorical
+  - handling missing value
+    - find percentage of missing values of each column
+    - understand from bussiness why a column is missing
+    - impute if necessary
+    - if target is missing ignore the rows 
+  - derive varibales --> how can I make use of the information
+  - any anomalies check with business
