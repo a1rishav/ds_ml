@@ -23,9 +23,11 @@
     - https://seaborn.pydata.org/generated/seaborn.countplot.html
     ```buildoutcfg
      sns.countplot(x="class", data=titanic)
+     sns.countplot(x='purpose', hue='loan_status', data=df)
     ```
   
 - jointplot
+  - relationship bw 2 numerical features
   - scatterplot with distribution for numerical features
   - https://seaborn.pydata.org/generated/seaborn.jointplot.html
   ```buildoutcfg
@@ -40,17 +42,19 @@
   - https://seaborn.pydata.org/generated/seaborn.pairplot.html
 
 - barplot
-  - Can be used to show categorical and numerical relationship
+  - Can be used to show relationship between categorical and numerical features
   - https://seaborn.pydata.org/generated/seaborn.barplot.html?highlight=barplot#seaborn.barplot  
   - ```
     sns.barplot(data=df, x='Content Rating', y='Rating')
     ```
 
 - boxplot
+  - Can be used to show relationship between categorical and numerical features
   - identify outliers
   - https://seaborn.pydata.org/generated/seaborn.boxplot.html
   - ```
      sns.boxplot(x=df['Content Rating'], y=df.Rating)
+     sns.boxplot(y='loan_amnt', x='loan_status', data=df)
     ```
 - heatmap
   - visualize coorelation
@@ -65,3 +69,5 @@
         plt.style.available
         plt.style.use("ggplot")  
     ```
+  
+- Reference : https://towardsdatascience.com/a-complete-guide-to-plotting-categorical-variables-with-seaborn-bfe54db66bec
