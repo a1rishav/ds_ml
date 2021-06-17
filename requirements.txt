@@ -2,3 +2,4 @@ jupyter
 seaborn
 numpy
 scipy
+tensorflow
