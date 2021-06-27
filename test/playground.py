@@ -45,4 +45,13 @@ ipl17 = pd.DataFrame({'Team': ['MI', 'RPS', 'SRH', 'KKR', 'KXIP', 'DD', 'GL', 'R
 
 ipl_17_is_df = pd.concat([ipl17, ipl18])
 
+cat_cols = {"MSZoning", "Street", "Alley", "LotShape", "LandContour", "LotConfig", "LandSlope", "Neighborhood",
+            "Condition1", "Condition2", "BldgType", "HouseStyle", "RoofStyle", "RoofMatl", "Exterior1st", "Exterior2nd",
+            "MasVnrType", "Foundation", "BsmtCond", "Heating", "Electrical", "GarageType", "SaleType", "SaleCondition"}
+
+label_encoding = { "Utilities","ExterCond","ExterQual","BsmtQual","BsmtCond",
+"BsmtExposure","BsmtFinType1","BsmtFinType2"," HeatingQC",
+"KitchenQual","Functional","FireplaceQu","GarageQual","GarageFinish",
+"PavedDrive","Fence"}
+
 print()
