@@ -3,3 +3,7 @@ seaborn
 numpy
 scipy
 tensorflow
+# sudo apt install graphviz
+# pip install -U scikit-learn
+graphviz
+pydotplus
