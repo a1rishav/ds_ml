@@ -7,3 +7,5 @@ tensorflow
 # pip install -U scikit-learn
 graphviz
 pydotplus
+plotly
+xgboost
