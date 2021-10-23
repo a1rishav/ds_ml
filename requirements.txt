@@ -13,3 +13,5 @@ xgboost
 # conda install -c conda-forge imbalanced-learn
 pytesseract
 pillow
+nltk
+spacy
